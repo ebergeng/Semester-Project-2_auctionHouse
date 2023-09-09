@@ -8,13 +8,31 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier -w src/js/**/*.js",
     "lint": "eslint src/js/**/*.js",
-    "lint-fix": "eslint src/js/**/*.js --cache --fix"
+    "lint-fix": "eslint src/js/**/*.js --cache --fix",
+    "prepare": "husky install"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "eslint": "^8.49.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^14.0.1",
     "prettier": "^3.0.3"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.html": [
+      "prettier --write"
+    ],
+    "*.css": [
+      "prettier --write"
+    ],
+    "*.scss": [
+      "prettier --write"
+    ]
   }
 }
