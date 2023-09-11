@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="dist/css/index.css" />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <header>
@@ -20,13 +26,14 @@
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon haburger-collapsed"></span>
+            <span class="navbar-toggler-icon haburger-expanded d-none"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
               <li class="nav-item">
                 <button
-                  class="btn-primary costum-botton btn-link nav-link"
+                  class="btn-primary costum-botton btn-link nav-link w-100"
                   type="button"
                   data-bs-toggle="modal"
                   data-bs-target="#loginModal"
@@ -36,7 +43,7 @@
               </li>
               <li class="nav-item">
                 <button
-                  class="btn-secondary costum-botton btn-link nav-link"
+                  class="btn-secondary costum-botton btn-link nav-link w-100"
                   type="button"
                   data-bs-toggle="modal"
                   data-bs-target="#signupModal"
@@ -49,5 +56,32 @@
         </div>
       </nav>
     </header>
+    <div
+      class="modal fade"
+      id="loginModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">New message</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form></form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary w-100">Login</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
