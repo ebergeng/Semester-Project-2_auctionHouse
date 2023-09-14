@@ -53,10 +53,26 @@
                 </button>
               </li>
             </ul>
+            <ul class="navbar-nav ms-auto" id="logOutButton">
+              <li class="profile" id="profileMobile"></li>
+              <li class="nav-item">
+                <button
+                  class="btn-secondary costum-botton btn-link nav-link w-100"
+                  type="button"
+                  data-bs-toggle="modal"
+                >
+                  Log Out
+                </button>
+              </li>
+            </ul>
           </div>
         </div>
       </nav>
     </header>
+    <main class="d-flex">
+      <div class="col-3 m-4 d-none d-lg-block" id="profileDesktop"></div>
+      <div class="col d-flex"></div>
+    </main>
     <form
       class="modal fade"
       id="loginModal"

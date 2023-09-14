@@ -19,6 +19,14 @@
   background-color: #f23005;
 }
 
+.btn-tertiary {
+  background-color: #f28b0c;
+}
+
+.btn-tertiary:hover {
+  background-color: #f25c05;
+}
+
 .btn-secondary:hover {
   background-color: #f57052;
 }
@@ -29,4 +37,22 @@
 
 .btn-secondary:active {
   background-color: #f23005;
+}
+
+.profile-btn {
+  border-radius: 0px;
+  text-align: left;
+  position: relative;
+}
+
+.plus-icon {
+  position: absolute;
+  font-size: 32px;
+  top: 45%;
+  right: 10px;
+  transform: translateY(-50%);
+}
+
+.active {
+  background-color: #f25c05;
 }
