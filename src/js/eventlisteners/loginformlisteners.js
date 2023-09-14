@@ -1,5 +1,5 @@
 import { login } from "../api/auth/login.js";
-import { storeLogin } from "../api/lokalstore.js";
+import { storeLogin } from "../helpers/lokalstore.js";
 import { removeOverlay } from "../helpers/removeoverlay.js";
 
 export async function loginFormListener() {
