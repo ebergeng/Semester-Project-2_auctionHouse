@@ -29,6 +29,7 @@ export function loadProfile() {
                     </div>
                     </div>
                     `;
+
   window.addEventListener("resize", function () {
     if (window.innerWidth > 991) {
       profileDesktop.innerHTML = profileHTML;

@@ -1,4 +1,4 @@
-import { load } from "./lokalstore";
+import { load } from "../helpers/lokalstore.js";
 
 export function getHeader() {
   const token = load("token");

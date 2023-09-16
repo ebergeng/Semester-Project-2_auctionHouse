@@ -14,7 +14,7 @@
     <script defer type="module" src="/src/js/index.js"></script>
   </head>
   <body>
-    <header>
+    <header class="fixed-top">
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">AuctioNoroff</a>
@@ -69,9 +69,60 @@
       </nav>
     </header>
     <main class="d-flex">
-      <div class="col-3 m-4 d-none d-lg-block" id="profileDesktop"></div>
-      <div class="col d-flex"></div>
+      <div
+        class="col-3 pt-5 m-4 mt-5 d-none d-lg-block fixed-top"
+        id="profileDesktop"
+      ></div>
+      <div
+        class="col p-5 mt-4 d-flex flex-column justify-content-center align-items-center"
+        id="listingsContainer"
+      ></div>
     </main>
+    <div
+      class="modal fade"
+      id="bidList"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">Bids</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Bid</th>
+                  </tr>
+                </thead>
+                <tbody class="bids-data"></tbody>
+              </table>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
     <form
       class="modal fade"
       id="loginModal"
