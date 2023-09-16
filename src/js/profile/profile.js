@@ -1,15 +1,18 @@
+import { load } from "../helpers/lokalstore.js";
+
 export function loadProfile() {
+  const user = JSON.parse(load("user"));
   const profileDesktop = document.querySelector("#profileDesktop");
   const profileMobile = document.querySelector("#profileMobile");
   const profileHTML = `
                     <div class="container-fluid">
                     <div class="row">
                     <div class="card p-0 profile-card ">
-                        <h3 id="profile-name" class="ms-4 mt-4 mb-2">TestUser</h3>
+                        <h3 id="profile-name" class="ms-4 mt-4 mb-2">${user.name}</h3>
                         <div class="ms-4 me-4 d-flex justify-content-center">
-                        <img src="/madia/images/avatar.jpeg" alt="" class="card-img-top" id="profile-img">
+                        <img src="${user.avatar}" alt="profile img for ${user.name}" class="card-img-top" id="profile-img">
                         </div>
-                        <div class="ms-4 mt-4 mb-2">credits: 1000</div>
+                        <div class="ms-4 mt-4 mb-2">credits: ${user.credits}</div>
                         <div class="cta-box mb-4 ">
                             <button class="btn-primary costum-botton profile-btn btn-link nav-link w-100">
                                 Add Credits
