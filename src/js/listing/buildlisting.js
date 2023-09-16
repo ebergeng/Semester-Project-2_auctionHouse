@@ -2,18 +2,21 @@ import { getListings } from "../api/listings/getlistings.js";
 import { viewBids } from "../eventlisteners/viewbidlistener.js";
 
 export function getLastBid(element) {
-  let lastBid;
-  if (element.bids.length > 0) {
-    lastBid = element.bids[element.bids.length - 1].amount;
-  } else lastBid = 0;
+  let lastBid = 0;
+  if (element.bids) {
+    if (element.bids.length > 0) {
+      lastBid = element.bids[element.bids.length - 1].amount;
+    } else lastBid = 0;
+  }
+
   return lastBid;
 }
 
-export async function buildListing() {
-  const container = document.querySelector("#listingsContainer");
+export async function buildListing(listings, container) {
+  console.log(listings);
   const loader = document.querySelector("spinner-border");
 
-  const listings = await getListings();
+  //const listings = await getListings();
 
   listings.forEach((element) => {
     const dataObject = new Date(element.endsAt);

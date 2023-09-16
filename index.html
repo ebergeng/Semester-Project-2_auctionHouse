@@ -53,12 +53,13 @@
                 </button>
               </li>
             </ul>
-            <ul class="navbar-nav ms-auto" id="logOutButton">
+            <ul class="navbar-nav ms-auto">
               <li class="profile" id="profileMobile"></li>
               <li class="nav-item">
                 <button
                   class="btn-secondary costum-botton btn-link nav-link w-100"
                   type="button"
+                  id="logOutButton"
                 >
                   Log Out
                 </button>
@@ -74,9 +75,16 @@
         id="profileDesktop"
       ></div>
       <div
-        class="col p-5 mt-4 d-flex flex-column justify-content-center align-items-center"
+        class="col all-listings p-5 mt-4 d-flex flex-column justify-content-center align-items-center"
         id="listingsContainer"
-      ></div>
+      >
+        <h1>All Listings</h1>
+      </div>
+      <div
+        class="my-listings col p-5 mt-4 d-flex flex-column justify-content-center align-items-center d-none"
+      >
+        <h1>My Listings</h1>
+      </div>
     </main>
     <div
       class="modal fade"
