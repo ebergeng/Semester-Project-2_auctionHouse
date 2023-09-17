@@ -10,3 +10,20 @@
   background-color: $secondary;
   border: none;
 }
+
+.cred {
+  color: #f25c05;
+}
+
+.profileContainer {
+  position: fixed;
+}
+
+#profileDesktop {
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.336);
+  position: absolute;
+  top: 80px;
+  left: 50%;
+  transform: translate(-50%);
+  width: 100%;
+}
