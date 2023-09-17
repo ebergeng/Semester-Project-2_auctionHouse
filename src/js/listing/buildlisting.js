@@ -13,11 +13,6 @@ export function getLastBid(element) {
 }
 
 export async function buildListing(listings, container) {
-  console.log(listings);
-  const loader = document.querySelector("spinner-border");
-
-  //const listings = await getListings();
-
   listings.forEach((element) => {
     const dataObject = new Date(element.endsAt);
     const date =
@@ -57,7 +52,7 @@ export async function buildListing(listings, container) {
       bidLink = "loginModal";
     }
 
-    const itemHTML = `<div class="card item col m-2">
+    const itemHTML = `<div class="card item col-sm-12 col-md-10 col-lg-8 m-2">
                             <div class="card-header bg-transparent d-flex justify-content-between">
                                 <div>
                                     <h3 class="card-title">${element.title}</h3>
@@ -72,7 +67,7 @@ export async function buildListing(listings, container) {
                                 <p>${element.description}</p>
 
                             </div>
-                            <div class="card-footer d-flex justify-content-between bg-transparent">
+                            <div class="card-footer d-flex justify-content-between justify-content-center align-items-center bg-transparent">
                                 <button
                                 class="bg-transparent spesial-btn nav-link d-flex flex-column align-items-center"
                                 type="button"

@@ -12,10 +12,11 @@ export async function yourListingsListener() {
   youItemBtn.addEventListener("click", async () => {
     youListingsContainer.innerHTML = "<h1>Your Listings</h1>";
     allListings.classList.add("d-none");
+    document.querySelectorAll(".active").forEach((element) => {
+      element.classList.remove("active");
+    });
     youItemBtn.classList.add("active");
     youListingsContainer.classList.remove("d-none");
-    allItemBtn.classList.remove("active");
-    yourBidsBtn.classList.remove("active");
 
     const profile = JSON.parse(load("user"));
     const listing = await getProfileListings(profile.name);
