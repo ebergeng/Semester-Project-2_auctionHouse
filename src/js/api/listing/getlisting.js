@@ -11,10 +11,15 @@ export async function getListing(id) {
 
   const respons = await fetch(URL, options);
   const json = await respons.json();
-  if (!respons.ok) {
-    const errorMessage = json.errors[0].errorMessage;
-    throw new Error(errorMessage);
+  if (respons.ok) {
+    return json;
+  } else {
+    if (json.statusCode === 404) {
+      throw new Error(
+        "Sorry, we encountered an issue connecting to our service. Please try again later.",
+      );
+    } else {
+      throw new Error(json.errors[0].message);
+    }
   }
-
-  return json;
 }

@@ -3,6 +3,7 @@ import { checkLoginStatus } from "./helpers/checkloginstatus.js";
 import { getAuctions } from "./pages/start.js";
 import { placeBidListener } from "./eventlisteners/placebidlistener.js";
 import * as page from "./pages/index.js";
+import { viewBidListener } from "./eventlisteners/viewbidlistener.js";
 
 function rout() {
   const path = window.location.pathname;
@@ -19,6 +20,7 @@ function rout() {
       page.getAuctions();
       placeBidListener();
       page.listingsPage();
+      viewBidListener();
       break;
   }
 }
