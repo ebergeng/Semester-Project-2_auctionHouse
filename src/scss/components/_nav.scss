@@ -1,0 +1,19 @@
+.navbar {
+  background-color: $secondary !important;
+}
+
+.navbar-brand {
+  color: $primary !important;
+}
+
+.navbar li {
+  padding: 5px;
+}
+
+.haburger-collapsed {
+  background-image: url("/madia/icons/haburger.png") !important;
+}
+
+.haburger-expanded {
+  background-image: url("/madia/icons/cross.png") !important;
+}
