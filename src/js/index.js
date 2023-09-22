@@ -1,6 +1,8 @@
 import * as formlisteners from "./eventlisteners/formlisteners/index.js";
 import { checkLoginStatus } from "./helpers/checkloginstatus.js";
 import { getAuctions } from "./pages/start.js";
+import { placeBidListener } from "./eventlisteners/placebidlistener.js";
+import * as page from "./pages/index.js";
 
 function rout() {
   const path = window.location.pathname;
@@ -11,10 +13,12 @@ function rout() {
     case "/index.html":
       formlisteners.loginFormListener();
       formlisteners.registerFormListener();
-      getAuctions();
+      page.getAuctions();
       break;
     case "/listings/":
-      getAuctions();
+      page.getAuctions();
+      placeBidListener();
+      page.listingsPage();
       break;
   }
 }
