@@ -15,8 +15,12 @@ export async function register(profile) {
   if (respons.ok) {
     return json;
   } else {
-    throw new Error(
-      "Sorry, we encountered an issue connecting to our service. Please try again later.",
-    );
+    if (json.statusCode === 404) {
+      throw new Error(
+        "Sorry, we encountered an issue connecting to our service. Please try again later.",
+      );
+    } else {
+      throw new Error(json.errors[0].message);
+    }
   }
 }

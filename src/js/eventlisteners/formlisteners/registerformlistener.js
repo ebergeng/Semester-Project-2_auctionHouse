@@ -30,7 +30,6 @@ export function registerFormListener() {
       displayMessage("success", "Registration successful!", message);
     } catch (err) {
       console.log(err);
-      console.log(message);
       displayMessage("danger", err, message);
     } finally {
       form.querySelector("fieldset").disabled = false;
