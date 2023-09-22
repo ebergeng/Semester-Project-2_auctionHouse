@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>AuctioNoroff</title>
     <link rel="stylesheet" href="dist/css/index.css" />
     <script
       defer
@@ -11,6 +11,7 @@
       integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
       crossorigin="anonymous"
     ></script>
+    <script defer type="module" src="/src/js/index.js"></script>
   </head>
   <body>
     <header>
@@ -30,7 +31,7 @@
             <span class="navbar-toggler-icon haburger-expanded d-none"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
+            <ul class="navbar-nav ms-auto authButtons">
               <li class="nav-item">
                 <button
                   class="btn-primary costum-botton btn-link nav-link w-100"
@@ -128,6 +129,15 @@
             ></button>
           </div>
           <div class="modal-body">
+            <label for="name">User Name</label>
+            <input
+              class="form-control"
+              type="text"
+              name="name"
+              required
+              pattern="^[\w]+$"
+              maxlength="20"
+            />
             <label for="loginEmail">Email address</label>
             <input
               required
@@ -150,16 +160,6 @@
             />
 
             <label for="loginPassword" class="mt-2">Password</label>
-            <input
-              required
-              type="password"
-              minlength="8"
-              class="form-control"
-              id="loginPassword"
-              name="password"
-              placeholder="Password"
-            />
-            <label for="loginPassword" class="mt-2">Retype Password</label>
             <input
               required
               type="password"
