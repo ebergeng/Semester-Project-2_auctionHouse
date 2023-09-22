@@ -12,10 +12,12 @@ export async function login(profile) {
   const respons = await fetch(LOGIN_URL, options);
   const json = await respons.json();
 
-  if (!respons.ok) {
-    const errorMessage = json.errors[0].errorMessage;
-    throw new Error(errorMessage);
+  if (respons.ok) {
+    return json;
+  } else {
+    console.log(json.errors[0].errorMessage);
+    throw new Error(
+      "Sorry, we encountered an issue connecting to our service. Please try again later.",
+    );
   }
-
-  return json;
 }

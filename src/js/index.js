@@ -1,11 +1,16 @@
-import { registerFormListener } from "./eventlisteners/registerformlistener.js";
-import { loginFormListener } from "./eventlisteners/loginformlisteners.js";
-import { load } from "./api/lokalstore.js";
+import * as formlisteners from "./eventlisteners/formlisteners/index.js";
+import { checkLoginStatus } from "./helpers/checkloginstatus.js";
 
-if (!load("token")) {
-  registerFormListener();
-  loginFormListener();
-} else {
-  const buttons = document.querySelector(".authButtons");
-  buttons.remove();
+function rout() {
+  const path = window.location.pathname;
+  checkLoginStatus(path);
+
+  switch (path) {
+    case "/":
+    case "/index.html":
+      formlisteners.loginFormListener();
+      formlisteners.registerFormListener();
+      break;
+  }
 }
+rout();
