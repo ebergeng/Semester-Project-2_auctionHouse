@@ -1,6 +1,3 @@
-import { getListings } from "../api/listings/getlistings.js";
-import { viewBids } from "../eventlisteners/viewbidlistener.js";
-
 export function getLastBid(element) {
   let lastBid = 0;
   if (element.bids) {
@@ -13,6 +10,8 @@ export function getLastBid(element) {
 }
 
 export async function buildListing(listings, container) {
+  //const loader = document.querySelector(".loader")
+
   listings.forEach((element) => {
     const dataObject = new Date(element.endsAt);
     const date =
@@ -43,8 +42,10 @@ export async function buildListing(listings, container) {
                                     }" max="50" value="${getLastBid(element)}">
                                 </div>
                                 <div class="modal-footer">
-                                <button type="button" class="btn btn-primary w-100">Place Bid</button>
-                                </div>
+                                <button type="button" class="btn btn-primary w-100" data-id=${
+                                  element.id
+                                } data-bs-target="#palceBid" ">Place Bid</button>
+                                </div><
                             </div>
                             </div>
                         </div>`;

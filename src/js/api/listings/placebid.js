@@ -1,12 +1,12 @@
-import { LISTINGS_URL } from "../constants.js";
+import { BID_URL } from "../constantsjs";
+import { getHeader } from "../headers";
 
-export async function getListings() {
-  const URL = LISTINGS_URL + "?_active=true&_bids=true";
+export async function placeBid(id, bid) {
+  const URL = `${BID_URL}/${id}/bids`;
   const options = {
-    headers: {
-      "Content-Type": "application/json",
-    },
-    method: "GET",
+    headers: getHeader(),
+    method: "POST",
+    body: JSON.stringify(bid),
   };
 
   const respons = await fetch(URL, options);
