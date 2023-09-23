@@ -25,6 +25,7 @@ function rout() {
       break;
     case "/profile/":
       page.profilePage();
+      formlisteners.updateProfileListener();
   }
 }
 rout();

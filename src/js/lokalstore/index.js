@@ -6,3 +6,4 @@ export * from "./storelogin.js";
 export * from "./setlocalstorecredits.js";
 export * from "./getavatar.js";
 export * from "./getcredits.js";
+export * from "./setlocalstoreavatar.js";

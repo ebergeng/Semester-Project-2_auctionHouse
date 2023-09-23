@@ -57,6 +57,8 @@
 
             <button
               class="bg-transparent spesial-btn nav-link d-flex flex-column align-items-center"
+              data-bs-toggle="modal"
+              data-bs-target="#updateProfileModal"
             >
               <span><img src="../madia/icons/edit.png" alt="" /></span>
             </button>
@@ -66,7 +68,7 @@
               class="card-body ms-4 me-4 d-flex flex-column justify-content-center align-items-center"
             >
               <img
-                src="https://unsplash.com/photos/3uJt73tr4hI"
+                src=""
                 alt="profile img for ${user.name}"
                 class="profile-img"
                 id="profileImg"
@@ -108,5 +110,75 @@
         ></div>
       </div>
     </main>
+
+    <form
+      class="modal fade"
+      id="updateProfileModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content p-2">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">
+              AuctioNoroff
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <fieldset>
+            <div class="modal-body">
+              <label for="name">User Name</label>
+              <input
+                class="form-control"
+                type="text"
+                name="name"
+                required
+                pattern="^[\w]+$"
+                maxlength="20"
+                disabled="true"
+                id="modalName"
+              />
+              <label for="loginEmail">Email address</label>
+              <input
+                required
+                type="email"
+                class="form-control"
+                id="modalEmail"
+                name="email"
+                pattern="[\w\-.]+@(stud.)?noroff.no$"
+                title="Only Noroff student or teacher emails are valid."
+                placeholder="example@noroff.no"
+                disabled="true"
+              />
+              <label for="updateAvatar" class="mt-2">Avatar URL</label>
+              <input
+                required
+                type="url"
+                class="form-control"
+                id="updateAvatar"
+                name="avatar"
+                placeholder="URL"
+              />
+            </div>
+            <div class="modal-footer">
+              <div class="msg d-none w-100" id="modalMsg"></div>
+              <button
+                type="submit"
+                class="disabled costum-botton btn-secondary w-100"
+                id="updateProfileBtn"
+              >
+                Update
+              </button>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+    </form>
   </body>
 </html>

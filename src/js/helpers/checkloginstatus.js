@@ -1,7 +1,7 @@
 import { load } from "../api/lokalstore.js";
 
 const authRoutes = ["/"];
-const protectedRoutes = ["/listings/"];
+const protectedRoutes = ["/listings/", "/profile/"];
 
 export function checkLoginStatus(path) {
   if (load("token")) {

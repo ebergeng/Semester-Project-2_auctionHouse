@@ -1,9 +1,9 @@
 import { load } from "./localstoreload.js";
 
-export async function setLocalStoreCredits(credits) {
+export async function setLocalStoreAvatar(avatar) {
   let user = load("user");
   user = JSON.parse(user);
-  user.credits = credits;
+  user.avatar = avatar;
   let upDateUser = JSON.stringify(user);
   localStorage.setItem("user", upDateUser);
 }
