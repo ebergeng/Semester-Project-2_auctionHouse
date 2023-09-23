@@ -1,8 +1,14 @@
 import * as localStore from "../lokalstore/index.js";
+import { getProfileListings } from "../api/listing/getprofilelisting.js";
+import { getBids } from "../api/listing/getbids.js";
+import { Auction } from "../ui/listing/auction.js";
+import { getListing } from "../api/listing/getlisting.js";
 
 export async function profilePage() {
   const profileContainer = document.querySelector("#profileContainer");
   const updateProfileModal = document.querySelector("#updateProfileModal");
+  const myListingContainer = document.querySelector("#myListing");
+  const myBidContainer = document.querySelector("#myBids");
 
   const profileName = await localStore.getLocalStoreName();
   const profileEmail = await localStore.getLocalStoreEmail();
@@ -18,4 +24,33 @@ export async function profilePage() {
 
   updateProfileModal.querySelector("#modalName").value = profileName;
   updateProfileModal.querySelector("#modalEmail").value = profileEmail;
+
+  let myListing = [];
+  try {
+    const listing = await getProfileListings(profileName);
+    console.log(listing);
+    listing.forEach((element) => {
+      myListing.push(new Auction(element));
+    });
+  } catch (err) {
+    console.log(err);
+  }
+
+  myListing.forEach((element) => {
+    myListingContainer.innerHTML += element.html;
+  });
+  try {
+    const bids = await getBids(profileName);
+    bids.forEach(async (element) => {
+      const apiCall = await getListing(element.listing.id);
+      let auction = new Auction(apiCall);
+      await buildMyBids(auction);
+    });
+  } catch (err) {
+    console.log(err);
+  }
+
+  async function buildMyBids(auction) {
+    myBidContainer.innerHTML += auction.html;
+  }
 }

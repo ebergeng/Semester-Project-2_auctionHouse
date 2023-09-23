@@ -28,6 +28,7 @@ async function rout() {
     case "/profile/":
       page.profilePage();
       formlisteners.updateProfileListener();
+      viewBidListener();
       break;
   }
 }

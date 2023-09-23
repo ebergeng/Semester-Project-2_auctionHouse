@@ -1,11 +1,10 @@
-import { LISTINGS_URL } from "../constants.js";
+import { PROFILE_URL } from "../constants.js";
+import { getHeader } from "../../helpers/header.js";
 
-export async function getListing(id) {
-  const URL = `${LISTINGS_URL}/${id}?_bids=true&_seller=true`;
+export async function getBids(name) {
+  const URL = `${PROFILE_URL}/${name}/bids?_listings=true`;
   const options = {
-    headers: {
-      "Content-Type": "application/json",
-    },
+    headers: getHeader(),
     method: "GET",
   };
 
