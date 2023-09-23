@@ -3,6 +3,8 @@ import { getListing } from "../api/listing/getlisting.js";
 import { placeBid } from "../api/listing/placebid.js";
 import * as loader from "../ui/common/loader/index.js";
 import displayMessage from "../ui/common/displaymessage.js";
+import { getCredits } from "../api/profile/getcredits.js";
+import * as localStore from "../lokalstore/index.js";
 
 export async function placeBidListener() {
   const modal = document.querySelector("#placeBid");
@@ -54,6 +56,9 @@ export async function placeBidListener() {
       displayMessage("success", "Bid placed successfuly!", msg);
       backBtn.classList.remove("d-none");
       placeBidBtn.classList.add("d-none");
+      localStore.setLocalStoreCredits(
+        await getCredits(await localStore.getLocalStoreName()),
+      );
     } catch (err) {
       console.log(err);
       displayMessage("danger", err, modal);

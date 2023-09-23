@@ -4,6 +4,7 @@ import { getAuctions } from "./pages/start.js";
 import { placeBidListener } from "./eventlisteners/placebidlistener.js";
 import * as page from "./pages/index.js";
 import { viewBidListener } from "./eventlisteners/viewbidlistener.js";
+import { getCredits } from "./api/profile/getcredits.js";
 
 function rout() {
   const path = window.location.pathname;
@@ -21,6 +22,7 @@ function rout() {
       placeBidListener();
       page.listingsPage();
       viewBidListener();
+
       break;
   }
 }
