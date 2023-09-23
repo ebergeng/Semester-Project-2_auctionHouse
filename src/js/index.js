@@ -1,10 +1,8 @@
 import * as formlisteners from "./eventlisteners/formlisteners/index.js";
 import { checkLoginStatus } from "./helpers/checkloginstatus.js";
-import { getAuctions } from "./pages/start.js";
 import { placeBidListener } from "./eventlisteners/placebidlistener.js";
 import * as page from "./pages/index.js";
 import { viewBidListener } from "./eventlisteners/viewbidlistener.js";
-import { getCredits } from "./api/profile/getcredits.js";
 
 function rout() {
   const path = window.location.pathname;
@@ -26,6 +24,7 @@ function rout() {
     case "/profile/":
       page.profilePage();
       formlisteners.updateProfileListener();
+      break;
   }
 }
 rout();
