@@ -22,8 +22,9 @@ function rout() {
       placeBidListener();
       page.listingsPage();
       viewBidListener();
-
       break;
+    case "/profile/":
+      page.profilePage();
   }
 }
 rout();
