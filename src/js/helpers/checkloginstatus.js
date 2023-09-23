@@ -1,16 +1,10 @@
-import { load } from "../api/lokalstore.js";
+import * as localStore from "../lokalstore/index.js";
 
-const authRoutes = ["/"];
-const protectedRoutes = ["/listings/", "/profile/"];
-
-export function checkLoginStatus(path) {
-  if (load("token")) {
-    if (authRoutes.includes(path)) {
-      location.href = "/listings";
-    }
+export async function checkLoginStatus() {
+  const token = await localStore.getLocalStoreToken();
+  if (token) {
+    return true;
   } else {
-    if (protectedRoutes.includes(path)) {
-      location.href = "/";
-    }
+    return false;
   }
 }

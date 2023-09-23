@@ -1,12 +1,14 @@
 import * as formlisteners from "./eventlisteners/formlisteners/index.js";
-import { checkLoginStatus } from "./helpers/checkloginstatus.js";
+import { routeUser } from "./helpers/routuser.js";
 import { placeBidListener } from "./eventlisteners/placebidlistener.js";
 import * as page from "./pages/index.js";
 import { viewBidListener } from "./eventlisteners/viewbidlistener.js";
+import { createMenu } from "./ui/navbar.js";
 
-function rout() {
+async function rout() {
   const path = window.location.pathname;
-  checkLoginStatus(path);
+  routeUser(path);
+  await createMenu(path);
 
   switch (path) {
     case "/":
