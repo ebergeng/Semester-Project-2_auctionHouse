@@ -18,7 +18,7 @@ To set up the project on your local machine, follow these instructions:
 
 2. Navigate to the project directory:
    ```bash
-   cd semester-project-2---auction
+   cd Semester-Project-2_auctionHouse
 
 3. Install the dependencies:
    ```bash
