@@ -50,3 +50,10 @@ To set up the project on your local machine, follow these instructions:
 
 ### Dependencies
  - The project uses Bootstrap for styling and layout
+
+### Dev Dependencies
+- Sass for CSS pre-processing.
+- ESLint & Prettier for linting and code formatting.
+- Jest for testing.
+- live-server for serving the site during development.
+- Husky & lint-staged for managing pre-commit hooks.
