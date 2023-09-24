@@ -3,6 +3,8 @@ import { getProfileListings } from "../api/listing/getprofilelisting.js";
 import { getBids } from "../api/listing/getbids.js";
 import { Auction } from "../ui/listing/auction.js";
 import { getListing } from "../api/listing/getlisting.js";
+import * as loader from "../ui/common/loader/index.js";
+import displayMessage from "../ui/common/displaymessage.js";
 
 export async function profilePage() {
   const profileContainer = document.querySelector("#profileContainer");
@@ -25,32 +27,42 @@ export async function profilePage() {
   updateProfileModal.querySelector("#modalName").value = profileName;
   updateProfileModal.querySelector("#modalEmail").value = profileEmail;
 
+  const bigLoader = loader.bigLoader();
+
   let myListing = [];
-  try {
-    const listing = await getProfileListings(profileName);
-    console.log(listing);
-    listing.forEach((element) => {
-      myListing.push(new Auction(element));
-    });
-  } catch (err) {
-    console.log(err);
-  }
 
-  myListing.forEach((element) => {
-    myListingContainer.innerHTML += element.html;
-  });
-  try {
-    const bids = await getBids(profileName);
-    bids.forEach(async (element) => {
-      const apiCall = await getListing(element.listing.id);
-      let auction = new Auction(apiCall);
-      await buildMyBids(auction);
-    });
-  } catch (err) {
-    console.log(err);
-  }
+  async function buildMyListing() {
+    myListingContainer.append(bigLoader);
+    try {
+      const listing = await getProfileListings(profileName);
+      console.log(listing);
 
-  async function buildMyBids(auction) {
-    myBidContainer.innerHTML += auction.html;
+      listing.forEach((element) => {
+        myListing.push(new Auction(element));
+      });
+    } catch (err) {
+      console.log(err);
+      displayMessage("danger", err, myListingContainer);
+    }
+    bigLoader.classList.add("d-none");
+    myListing.forEach((element) => {
+      myListingContainer.innerHTML += element.html;
+    });
   }
+  buildMyListing();
+
+  async function buildMyBids() {
+    try {
+      const bids = await getBids(profileName);
+      bids.forEach(async (element) => {
+        const apiCall = await getListing(element.listing.id);
+        let auction = new Auction(apiCall);
+        myBidContainer.innerHTML += auction.html;
+      });
+    } catch (err) {
+      console.log(err);
+      displayMessage("danger", err, myBidContainer);
+    }
+  }
+  buildMyBids();
 }
