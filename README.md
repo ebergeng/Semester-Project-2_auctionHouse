@@ -14,4 +14,4 @@ To set up the project on your local machine, follow these instructions:
 
 1. Clone the repository:
    ```bash
-   git clone <repository_url>
+   git clone https://github.com/ebergeng/Semester-Project-2_auctionHouse.git
