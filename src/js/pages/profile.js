@@ -5,8 +5,20 @@ import { Auction } from "../ui/listing/auction.js";
 import { getListing } from "../api/listing/getlisting.js";
 import * as loader from "../ui/common/loader/index.js";
 import displayMessage from "../ui/common/displaymessage.js";
+import * as formListeners from "../eventlisteners/formlisteners/index.js";
+import * as buttonListener from "../eventlisteners/buttonlisteners/index.js";
+import { viewBidListener } from "../eventlisteners/viewbidlistener.js";
+import { backBtnListener } from "../eventlisteners/backbtnlistener.js";
 
 export async function profilePage() {
+  formListeners.addNewItemListener();
+  formListeners.updateProfileListener();
+  buttonListener.deleteItemListener();
+  buttonListener.profilMenuListener();
+  formListeners.placeBidListener();
+  backBtnListener();
+  viewBidListener();
+
   const profileContainer = document.querySelector("#profileContainer");
   const updateProfileModal = document.querySelector("#updateProfileModal");
   const myListingContainer = document.querySelector("#myListing");
@@ -30,7 +42,6 @@ export async function profilePage() {
   const bigLoader = loader.bigLoader();
 
   let myListing = [];
-
   async function buildMyListing() {
     myListingContainer.append(bigLoader);
     try {

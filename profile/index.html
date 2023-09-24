@@ -367,5 +367,64 @@
         </div>
       </div>
     </div>
+
+    <div
+      class="modal fade"
+      id="placeBid"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Place Bid</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div
+            class="msg d-flex flex-column justify-content-center align-items-center"
+          ></div>
+          <fieldset>
+            <div
+              class="modal-body d-flex flex-column justify-content-center align-items-center"
+              id="bidContainer"
+            >
+              <input type="number" id="" min="" max="" value="" />
+              <input
+                type="range"
+                class="form-range"
+                id="customRange1"
+                id="vol"
+                name="vol"
+                min=""
+                max=""
+                value=""
+              />
+            </div>
+          </fieldset>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-primary w-100"
+              id="placeBidBtn"
+            >
+              Place Bid
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary w-100 d-none"
+              id="backBtn"
+            >
+              Back
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

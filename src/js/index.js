@@ -1,13 +1,8 @@
 import * as formlisteners from "./eventlisteners/formlisteners/index.js";
 import { routeUser } from "./helpers/routuser.js";
-import { placeBidListener } from "./eventlisteners/placebidlistener.js";
 import * as page from "./pages/index.js";
-import { viewBidListener } from "./eventlisteners/viewbidlistener.js";
 import { createMenu } from "./ui/navbar.js";
 import { logOutButtonListener } from "./eventlisteners/buttonlisteners/logoutbuttonlistener.js";
-import { profilMenuListener } from "./eventlisteners/buttonlisteners/profilemenulistener.js";
-import { addNewItemListener } from "./eventlisteners/formlisteners/addnewitemlistener.js";
-import { deleteItemListener } from "./eventlisteners/buttonlisteners/deleteitmelistener.js";
 
 async function rout() {
   const path = window.location.pathname;
@@ -24,17 +19,10 @@ async function rout() {
       break;
     case "/listings/":
       page.getAuctions();
-      placeBidListener();
       page.listingsPage();
-      viewBidListener();
       break;
     case "/profile/":
       page.profilePage();
-      formlisteners.updateProfileListener();
-      viewBidListener();
-      profilMenuListener();
-      addNewItemListener();
-      deleteItemListener();
       break;
   }
 }

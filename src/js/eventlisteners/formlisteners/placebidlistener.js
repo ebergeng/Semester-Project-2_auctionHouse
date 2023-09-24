@@ -1,10 +1,10 @@
-import { load } from "../api/lokalstore.js";
-import { getListing } from "../api/listing/getlisting.js";
-import { placeBid } from "../api/listing/placebid.js";
-import * as loader from "../ui/common/loader/index.js";
-import displayMessage from "../ui/common/displaymessage.js";
-import { getCredits } from "../api/profile/getcredits.js";
-import * as localStore from "../lokalstore/index.js";
+import { load } from "../../api/lokalstore.js";
+import { getListing } from "../../api/listing/getlisting.js";
+import { placeBid } from "../../api/listing/placebid.js";
+import * as loader from "../../ui/common/loader/index.js";
+import displayMessage from "../../ui/common/displaymessage.js";
+import { getCredits } from "../../api/profile/getcredits.js";
+import * as localStore from "../../lokalstore/index.js";
 
 export async function placeBidListener() {
   const modal = document.querySelector("#placeBid");

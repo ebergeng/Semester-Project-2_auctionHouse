@@ -1,5 +1,6 @@
 import { updateButtonState } from "../../helpers/disabledbutton.js";
 import { createListing } from "../../api/listing/createlisting.js";
+import { removeOverlay } from "../../helpers/removeoverlay.js";
 
 export async function addNewItemListener() {
   const form = document.querySelector("#listNewItem");
@@ -20,6 +21,8 @@ export async function addNewItemListener() {
     body.media = mediaString.split(",").map((media) => media.trim());
     try {
       await createListing(body);
+      removeOverlay("listNewItem");
+      location.reload();
     } catch (err) {
       console.log(err);
     }
