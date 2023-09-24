@@ -15,3 +15,22 @@ To set up the project on your local machine, follow these instructions:
 1. Clone the repository:
    ```bash
    git clone https://github.com/ebergeng/Semester-Project-2_auctionHouse.git
+
+2. Navigate to the project directory:
+   ```bash
+   cd semester-project-2---auction
+
+3. Install the dependencies:
+   ```bash
+   npm install
+
+Running the Project Locally
+
+1. To build the SCSS files to CSS:
+   ```bash
+   npm run build
+
+2. To watch for changes in SCSS files and run the live server:
+   ```bash
+   npm run watch
+  
