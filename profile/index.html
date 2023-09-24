@@ -42,7 +42,7 @@
       </nav>
     </header>
 
-    <main class="p-3 d-md-flex">
+    <main class="p-3 d-md-flex align-items-start">
       <div
         class="profile-container col-12 col-md-4 col-lg-3 col d-flex flex-column justify-content-center align-items-center"
         id="profileContainer"
@@ -81,16 +81,23 @@
                 <div class="profile-credits-sum" id="profileCredits">0,-</div>
               </div>
             </div>
-            <div class="page-menu w-100">
+            <div class="page-menu w-100" id="profileMenu">
               <button
-                class="btn-tertiary active costum-botton profile-btn btn-link nav-link w-100"
-                id="allItems"
+                class="btn-primary costum-botton profile-btn btn-link nav-link w-100 mb-4"
+                id="newListingBtn"
+              >
+                New Listsing
+                <span class="plus-icon">+</span>
+              </button>
+              <button
+                class="btn-tertiary costum-botton active profile-btn btn-link nav-link w-100"
+                id="myListingBtn"
               >
                 My Listings
               </button>
               <button
                 class="btn-tertiary costum-botton profile-btn btn-link nav-link w-100 mt-2"
-                id="yourItems"
+                id="myBidsBtn"
               >
                 My bids
               </button>
@@ -106,19 +113,23 @@
           </div>
         </div>
       </div>
-      <div class="listing-container col">
-        <div class="headline text-center mt-4 mb-3"><h1>Your Listings</h1></div>
-        <div
-          class="listing-wrapper d-flex flex-wrap justify-content-center"
-          id="myListing"
-        ></div>
-      </div>
-      <div class="bid-container col">
-        <div class="headline text-center mt-4 mb-3"><h1>My Bids</h1></div>
-        <div
-          class="bid-wrapper d-flex flex-wrap justify-content-center"
-          id="myBids"
-        ></div>
+      <div class="listing-body col d-flex justify-content-center">
+        <div class="listing-container col" id="myListingContainer">
+          <div class="headline text-center mt-4 mb-3">
+            <h1>Your Listings</h1>
+          </div>
+          <div
+            class="listing-wrapper d-flex flex-wrap justify-content-center"
+            id="myListing"
+          ></div>
+        </div>
+        <div class="bid-container col d-none" id="myBidsContainer">
+          <div class="headline text-center mt-4 mb-3"><h1>My Bids</h1></div>
+          <div
+            class="bid-wrapper d-flex flex-wrap justify-content-center"
+            id="myBids"
+          ></div>
+        </div>
       </div>
     </main>
 
