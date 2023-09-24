@@ -24,7 +24,8 @@ To set up the project on your local machine, follow these instructions:
    ```bash
    npm install
 
-Running the Project Locally
+
+### Running the Project Locally
 
 1. To build the SCSS files to CSS:
    ```bash
@@ -34,3 +35,18 @@ Running the Project Locally
    ```bash
    npm run watch
   
+### Code Formatting and Linting
+1. To format the code using Prettier:
+   ```bash
+   npm run format
+   
+2. To lint the JavaScript files using ESLint:
+   ```bash
+   npm run lint
+   
+3. To automatically fix linting issues:
+   ```bash
+   npm run lint-fix
+
+### Dependencies
+ - The project uses Bootstrap for styling and layout
