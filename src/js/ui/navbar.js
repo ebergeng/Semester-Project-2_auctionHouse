@@ -1,5 +1,15 @@
 import { checkLoginStatus } from "../helpers/checkloginstatus.js";
-
+/**
+ * Dynamically creates and appends the menu to the `#navMenu` container based on the user's login status.
+ *
+ * If the user is logged in, the function will append links to the Listings and Profile pages.
+ * If the user is not logged in, the function will append buttons for Login and Sign Up.
+ * The function also sets the 'active' class for the link corresponding to the current path.
+ *
+ * @async
+ * @param {string} path - The current path of the page to determine which link should be marked as active.
+ * @returns {void}
+ */
 export async function createMenu(path) {
   const menuContainer = document.querySelector("#navMenu");
 

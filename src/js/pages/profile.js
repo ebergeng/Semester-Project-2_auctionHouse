@@ -10,6 +10,16 @@ import * as buttonListener from "../eventlisteners/buttonlisteners/index.js";
 import { viewBidListener } from "../eventlisteners/viewbidlistener.js";
 import { backBtnListener } from "../eventlisteners/backbtnlistener.js";
 
+/**
+ * Initializes and renders the profile page.
+ *
+ * This function sets up various event listeners required for the functionality of the profile page,
+ * including listeners for form submissions, button clicks, and viewing bids. It also fetches and displays
+ * the user's profile details, their listings, and the bids they've placed.
+ *
+ * @async
+ * @throws {Error} If there's an error while fetching profile listings or bids.
+ */
 export async function profilePage() {
   formListeners.addNewItemListener();
   formListeners.updateProfileListener();

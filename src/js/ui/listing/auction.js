@@ -1,6 +1,28 @@
 import { load } from "../../api/lokalstore.js";
+/**
+ * Represents an auction card which contains details about the auction item.
+ * It provides methods to generate the HTML representation of the auction,
+ * define the last bid, and format the date.
+ *
+ * @class
+ */
 
 export class Auction {
+  /**
+   * Creates an instance of the Auction class.
+   *
+   * @param {Object} auction - The auction data.
+   * @param {number} auction.id - Unique identifier for the auction.
+   * @param {Object} auction.seller - Information about the seller.
+   * @param {string} auction.seller.name - The name of the seller.
+   * @param {string} auction.title - The title of the auction.
+   * @param {string} auction.description - A description of the auction item.
+   * @param {string} auction.endsAt - The date-time when the auction ends.
+   * @param {string} auction.media - URL to the media/image of the auction item.
+   * @param {string[]} auction.tags - Array of tags associated with the auction.
+   * @param {Object[]} auction.bids - Array of bids placed on the auction.
+   * @param {number} auction.bids[].amount - The amount of the bid.
+   */
   constructor(auction) {
     this.id = auction.id;
     this.seller = auction.seller.name;
@@ -13,6 +35,11 @@ export class Auction {
     this.lastBid = this.getLastBid();
     this.html = this.generateHTML();
   }
+  /**
+   * Generates the HTML representation of the auction card.
+   *
+   * @returns {string} The HTML representation of the auction card.
+   */
   generateHTML() {
     return `<div class="card auction col-sm-12 col-md-10 col-lg-8 m-2">
                     <div class="card-header bg-transparent d-flex justify-content-between">
@@ -31,7 +58,11 @@ export class Auction {
                 </div>
                 `;
   }
-
+  /**
+   * Generates the footer of the auction card which contains action buttons.
+   *
+   * @returns {string} The HTML of the footer.
+   */
   footer() {
     if (load("token")) {
       return `<div class="card-footer d-flex justify-content-between justify-content-center align-items-center bg-transparent">
@@ -53,6 +84,11 @@ export class Auction {
     }
   }
 
+  /**
+   * Determines the action buttons (CTA) for the auction based on the user's relation to the auction.
+   *
+   * @returns {string} The HTML of the CTA (either 'Bid' or 'Delete' button).
+   */
   cta() {
     const user = JSON.parse(load("user"));
     if (this.seller === user.name) {
@@ -78,7 +114,11 @@ export class Auction {
             </button>`;
     }
   }
-
+  /**
+   * Gets the amount of the last bid placed on the auction.
+   *
+   * @returns {number} The amount of the last bid.
+   */
   getLastBid() {
     let lastBid = 0;
     if (this.bids) {
@@ -88,7 +128,12 @@ export class Auction {
     }
     return lastBid;
   }
-
+  /**
+   * Converts the provided endsAt date to a formatted string.
+   *
+   * @param {string} endsAt - The date-time string of when the auction ends.
+   * @returns {string} The formatted date and time string.
+   */
   date(endsAt) {
     const dataObject = new Date(endsAt);
     const date =

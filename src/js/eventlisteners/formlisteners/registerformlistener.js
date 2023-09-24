@@ -1,6 +1,23 @@
 import { register } from "../../api/auth/register.js";
 import displayMessage from "../../ui/common/displaymessage.js";
 
+/**
+ * Attaches an event listener to the registration form for user registration.
+ *
+ * This function:
+ * - Listens for the 'submit' event on the registration form ('signupModal').
+ * - Extracts user registration data from the form.
+ * - Temporarily disables the form and shows a loading spinner during the registration process.
+ * - Calls a `register` function to attempt to register the user with the provided details.
+ * - On successful registration:
+ *   - Modifies the button to lead to the login modal.
+ *   - Displays a success message.
+ * - Displays an error message if registration fails.
+ * - Resets the form button state once the process is complete.
+ *
+ * @function
+ * @async
+ */
 export function registerFormListener() {
   const form = document.querySelector("#signupModal");
 

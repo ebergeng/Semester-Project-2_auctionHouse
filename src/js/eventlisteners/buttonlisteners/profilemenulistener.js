@@ -1,3 +1,10 @@
+/**
+ * Attaches event listeners to profile menu buttons to toggle the visibility of different sections.
+ * - "myListingBtn" shows the user's listings when clicked.
+ * - "myBidsBtn" shows the user's bids when clicked.
+ *
+ * @function
+ */
 export function profilMenuListener() {
   const menu = document.querySelector("#profileMenu");
   const myListing = menu.querySelector("#myListingBtn");
@@ -22,6 +29,4 @@ export function profilMenuListener() {
     myListingContainer.classList.add("d-none");
     myBidsContainer.classList.remove("d-none");
   });
-
-  newListing.addEventListener("click", () => {});
 }

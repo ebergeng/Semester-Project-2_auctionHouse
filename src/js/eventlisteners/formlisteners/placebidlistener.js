@@ -6,6 +6,23 @@ import displayMessage from "../../ui/common/displaymessage.js";
 import { getCredits } from "../../api/profile/getcredits.js";
 import * as localStore from "../../lokalstore/index.js";
 
+/**
+ * Attaches an event listener to the 'placeBid' modal for placing a bid on an auction item.
+ *
+ * This function:
+ * - Listens for the 'show.bs.modal' event on the 'placeBid' modal.
+ * - Retrieves the auction item's ID and fetches its current details.
+ * - Sets the minimum bid amount based on the last placed bid or 1 if no bids exist.
+ * - Adjusts bid input fields based on available user credits and current bid amounts.
+ * - Links range input and number input fields to reflect changes in bid amount.
+ * - Attaches a click event to the 'placeBidBtn' button to handle the bid submission.
+ * - Displays a loading spinner during the bid attempt.
+ * - On successful bid, displays a success message and updates user credits.
+ * - Displays an error message in the modal if the bid attempt fails.
+ *
+ * @function
+ * @async
+ */
 export async function placeBidListener() {
   const modal = document.querySelector("#placeBid");
   const placeBidBtn = document.querySelector("#placeBidBtn");
