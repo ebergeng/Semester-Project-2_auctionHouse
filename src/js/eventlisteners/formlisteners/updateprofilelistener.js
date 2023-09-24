@@ -9,7 +9,7 @@ export async function updateProfileListener() {
   const message = document.querySelector("#modalMsg");
   const avatarUrl = document.querySelector("#updateAvatar");
 
-  updateButtonState(btn, avatarUrl);
+  updateButtonState(btn, [avatarUrl]);
 
   btn.addEventListener("click", async (event) => {
     event.preventDefault();

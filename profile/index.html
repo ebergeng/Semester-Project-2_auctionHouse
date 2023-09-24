@@ -85,6 +85,8 @@
               <button
                 class="btn-primary costum-botton profile-btn btn-link nav-link w-100 mb-4"
                 id="newListingBtn"
+                data-bs-toggle="modal"
+                data-bs-target="#listNewItem"
               >
                 New Listsing
                 <span class="plus-icon">+</span>
@@ -196,6 +198,84 @@
                 id="updateProfileBtn"
               >
                 Update
+              </button>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+    </form>
+
+    <form
+      class="modal fade"
+      id="listNewItem"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content p-2">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">
+              AuctioNoroff
+            </h1>
+            <h2>List New Item</h2>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <fieldset>
+            <div class="modal-body">
+              <label for="title">Title</label>
+              <input
+                class="form-control"
+                type="text"
+                name="title"
+                required
+                id="modalTitle"
+              />
+              <label for="tags">Tags</label>
+              <input
+                type="text"
+                class="form-control"
+                id="modalTags"
+                name="tags"
+                placeholder="Tags"
+              />
+              <label for="description" class="mt-2">Description</label>
+              <textarea
+                name="description"
+                id="modalText"
+                cols="30"
+                rows="10"
+                class="form-control"
+                id="modalText"
+              ></textarea>
+              <label for="media" class="mt-2">Media</label>
+              <input
+                class="form-control"
+                id="modalMedia"
+                name="media"
+                placeholder="URL"
+              />
+              <label for="endsAt" class="mt-2">Ends At:</label>
+              <input
+                type="datetime-local"
+                id="endsAt"
+                name="endsAt"
+                class="form-control"
+              />
+            </div>
+            <div class="modal-footer">
+              <div class="msg d-none w-100" id="modalMsg"></div>
+              <button
+                type="submit"
+                class="costum-botton btn-secondary w-100"
+                id="addItem"
+              >
+                Add Item
               </button>
             </div>
           </fieldset>
