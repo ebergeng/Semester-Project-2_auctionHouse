@@ -7,6 +7,7 @@ import { createMenu } from "./ui/navbar.js";
 import { logOutButtonListener } from "./eventlisteners/buttonlisteners/logoutbuttonlistener.js";
 import { profilMenuListener } from "./eventlisteners/buttonlisteners/profilemenulistener.js";
 import { addNewItemListener } from "./eventlisteners/formlisteners/addnewitemlistener.js";
+import { deleteItemListener } from "./eventlisteners/buttonlisteners/deleteitmelistener.js";
 
 async function rout() {
   const path = window.location.pathname;
@@ -33,6 +34,7 @@ async function rout() {
       viewBidListener();
       profilMenuListener();
       addNewItemListener();
+      deleteItemListener();
       break;
   }
 }

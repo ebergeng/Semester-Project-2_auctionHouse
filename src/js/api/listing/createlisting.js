@@ -3,8 +3,6 @@ import { getHeader } from "../../helpers/header.js";
 
 export async function createListing(body) {
   const URL = `${LISTINGS_URL}`;
-  console.log(URL);
-  console.log(JSON.stringify(body));
   const options = {
     headers: getHeader(),
     method: "POST",

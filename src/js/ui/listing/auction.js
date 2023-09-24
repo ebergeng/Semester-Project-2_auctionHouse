@@ -60,7 +60,10 @@ export class Auction {
             class="btn-secondary costum-botton nav-link"
             type="button"
             data-bs-toggle="modal"
-            data-bs-target="#delModal${this.id}">
+            data-bs-target="#delItem"
+            data-id=${this.id}
+            id = "delItemBtn">
+            
             Delete
         </button>`;
     } else {
